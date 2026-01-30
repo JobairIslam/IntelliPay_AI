@@ -51,9 +51,9 @@ The system uses an **autonomous AI agent** that:
 ## **Tools & Technologies**
 
 * **Language:** Python
-* **AI Agent Framework:** LangChain / CrewAI (optional)
-* **Email Handling:** IMAP / Gmail API
-* **Data Storage:** Google Sheets / CSV
+* **AI Agent Framework:** LangChain / CrewAI 
+* **Email Handling:**  Gmail API
+* **Data Storage:** Google Sheets 
 * **Invoice Generation:** PDF libraries
 
 ---
