@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-card: #1a1a26;
+  --bg-hover: #22223a;
+  --accent-blue: #4f6ef7;
+  --accent-blue-hover: #3d5ce8;
+  --accent-purple: #7c5af7;
+  --accent-gradient: linear-gradient(135deg, #4f6ef7, #7c5af7);
+  --text-primary: #f0f0ff;
+  --text-secondary: #9999bb;
+  --text-muted: #55556a;
+  --border-color: #2a2a3d;
+  --border-light: #33334d;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --message-user-bg: linear-gradient(135deg, #4f6ef7, #7c5af7);
+  --message-ai-bg: #1a1a26;
+  --sidebar-width: 280px;
+}
+
+body {
+  background: var(--bg-primary);
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue);
+}
+
+@keyframes messageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-animate {
+  animation: messageIn 0.25s ease forwards;
+}
+
+@keyframes typingBounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-6px);
+  }
+}
