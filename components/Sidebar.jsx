@@ -2,7 +2,7 @@
 
 import { Plus, MessageSquare, Receipt, Database, Settings } from 'lucide-react';
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen = true, onClose }) {
   const chatHistory = [
     { id: 1, title: 'Total payments this month', time: '2h ago', active: true },
     { id: 2, title: 'Marketing team expenses', time: '5h ago', active: false },
@@ -12,20 +12,17 @@ export default function Sidebar() {
   ];
 
   return (
-    <div
-      style={{
-        width: 'var(--sidebar-width)',
-        height: '100vh',
-        background: 'var(--bg-secondary)',
-        borderRight: '1px solid var(--border-color)',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
+    <aside
+      className={`sidebar fixed left-0 top-0 z-40 h-screen shrink-0 flex flex-col border-r border-[var(--border-color)] bg-[var(--bg-secondary)] transition-transform duration-300 ease-in-out lg:static lg:translate-x-0 ${
+        isOpen ? 'translate-x-0' : '-translate-x-full'
+      }`}
+      style={{ width: 'var(--sidebar-width)' }}
     >
       {/* Logo Area */}
-      <div style={{ padding: '20px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div className="sidebar-logo-block sidebar-block-padding" style={{ padding: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
           <div
+            className="sidebar-logo-icon"
             style={{
               width: '40px',
               height: '40px',
@@ -34,26 +31,16 @@ export default function Sidebar() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              flexShrink: 0,
             }}
           >
             <Receipt size={20} color="white" />
           </div>
-          <div>
-            <div
-              style={{
-                color: 'var(--text-primary)',
-                fontSize: '18px',
-                fontWeight: '700',
-              }}
-            >
+          <div style={{ minWidth: 0, overflow: 'hidden' }}>
+            <div className="sidebar-logo-title" style={{ color: 'var(--text-primary)', fontSize: '16px', fontWeight: '700' }}>
               Invoice AI
             </div>
-            <div
-              style={{
-                color: 'var(--text-muted)',
-                fontSize: '12px',
-              }}
-            >
+            <div className="sidebar-logo-sub" style={{ color: 'var(--text-muted)', fontSize: '12px' }}>
               Finance Assistant
             </div>
           </div>
@@ -61,8 +48,10 @@ export default function Sidebar() {
       </div>
 
       {/* New Chat Button */}
-      <div style={{ margin: '0 16px 16px' }}>
+      <div className="sidebar-new-chat-wrap" style={{ margin: '0 16px 16px' }}>
         <button
+          type="button"
+          className="sidebar-btn"
           style={{
             width: '100%',
             height: '40px',
@@ -70,7 +59,7 @@ export default function Sidebar() {
             borderRadius: '10px',
             border: 'none',
             color: 'white',
-            fontSize: '14px',
+            fontSize: '13px',
             fontWeight: '600',
             display: 'flex',
             alignItems: 'center',
@@ -81,43 +70,27 @@ export default function Sidebar() {
           }}
           onMouseEnter={(e) => (e.target.style.filter = 'brightness(1.1)')}
           onMouseLeave={(e) => (e.target.style.filter = 'brightness(1)')}
+          onClick={onClose}
         >
-          <Plus size={18} />
+          <Plus size={16} />
           New Chat
         </button>
       </div>
 
       {/* Divider */}
-      <div
-        style={{
-          height: '1px',
-          background: 'var(--border-color)',
-          margin: '0 16px 12px',
-        }}
-      />
-      <div
-        style={{
-          color: 'var(--text-muted)',
-          fontSize: '11px',
-          textTransform: 'uppercase',
-          letterSpacing: '1px',
-          padding: '0 16px 12px',
-        }}
-      >
+      <div style={{ height: '1px', background: 'var(--border-color)', margin: '0 16px 12px' }} />
+      <div className="sidebar-section-label" style={{ color: 'var(--text-muted)', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px', padding: '0 16px 12px' }}>
         Recent Chats
       </div>
 
       {/* Chat History */}
-      <div
-        style={{
-          flexGrow: 1,
-          overflowY: 'auto',
-          padding: '0 8px',
-        }}
-      >
+      <div style={{ flexGrow: 1, overflowY: 'auto', padding: '0 8px', minWidth: 0 }}>
         {chatHistory.map((chat) => (
           <div
             key={chat.id}
+            role="button"
+            tabIndex={0}
+            className="sidebar-chat-item"
             style={{
               padding: '10px 16px',
               borderRadius: '8px',
@@ -127,34 +100,18 @@ export default function Sidebar() {
               cursor: 'pointer',
               transition: 'all 0.2s',
             }}
-            onMouseEnter={(e) => {
-              if (!chat.active) e.currentTarget.style.background = 'var(--bg-hover)';
-            }}
-            onMouseLeave={(e) => {
-              if (!chat.active) e.currentTarget.style.background = 'transparent';
-            }}
+            onMouseEnter={(e) => { if (!chat.active) e.currentTarget.style.background = 'var(--bg-hover)'; }}
+            onMouseLeave={(e) => { if (!chat.active) e.currentTarget.style.background = 'transparent'; }}
+            onClick={onClose}
+            onKeyDown={(e) => e.key === 'Enter' && onClose?.()}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <MessageSquare size={14} color="var(--accent-blue)" />
-              <div style={{ flex: 1, overflow: 'hidden' }}>
-                <div
-                  style={{
-                    color: 'var(--text-primary)',
-                    fontSize: '13px',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                  }}
-                >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
+              <MessageSquare size={14} color="var(--accent-blue)" style={{ flexShrink: 0 }} />
+              <div style={{ flex: 1, minWidth: 0, overflow: 'hidden' }}>
+                <div className="sidebar-chat-title" style={{ color: 'var(--text-primary)', fontSize: '13px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                   {chat.title}
                 </div>
-                <div
-                  style={{
-                    color: 'var(--text-muted)',
-                    fontSize: '11px',
-                    marginTop: '2px',
-                  }}
-                >
+                <div className="sidebar-chat-time" style={{ color: 'var(--text-muted)', fontSize: '11px', marginTop: '2px' }}>
                   {chat.time}
                 </div>
               </div>
@@ -164,47 +121,21 @@ export default function Sidebar() {
       </div>
 
       {/* Status Card */}
-      <div style={{ margin: '16px', marginBottom: '8px' }}>
-        <div
-          style={{
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border-color)',
-            borderRadius: '12px',
-            padding: '12px',
-          }}
-        >
+      <div className="sidebar-status-card" style={{ margin: '16px', marginBottom: '8px' }}>
+        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-            <div
-              style={{
-                width: '8px',
-                height: '8px',
-                borderRadius: '50%',
-                background: 'var(--success)',
-              }}
-            />
-            <span style={{ color: 'var(--text-secondary)', fontSize: '12px' }}>
-              AI Connected
-            </span>
+            <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--success)', flexShrink: 0 }} />
+            <span className="sidebar-status-text" style={{ color: 'var(--text-secondary)', fontSize: '12px' }}>AI Connected</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Database size={12} color="var(--text-muted)" />
-            <span style={{ color: 'var(--text-muted)', fontSize: '11px' }}>
-              Google Sheets
-            </span>
+            <Database size={12} color="var(--text-muted)" style={{ flexShrink: 0 }} />
+            <span className="sidebar-status-sub" style={{ color: 'var(--text-muted)', fontSize: '11px' }}>Google Sheets</span>
           </div>
         </div>
       </div>
 
       {/* User Profile */}
-      <div
-        style={{
-          padding: '12px 16px',
-          borderTop: '1px solid var(--border-color)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-        }}
-      >
+      <div className="sidebar-footer" style={{ padding: '12px 16px', borderTop: '1px solid var(--border-color)', display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0 }}>
         <div
           style={{
             width: '36px',
@@ -215,26 +146,21 @@ export default function Sidebar() {
             alignItems: 'center',
             justifyContent: 'center',
             color: 'white',
-            fontSize: '14px',
+            fontSize: '13px',
             fontWeight: '600',
+            flexShrink: 0,
           }}
         >
           CO
         </div>
-        <div style={{ flex: 1 }}>
-          <div
-            style={{
-              color: 'var(--text-primary)',
-              fontSize: '13px',
-              fontWeight: '500',
-            }}
-          >
+        <div style={{ flex: 1, minWidth: 0, overflow: 'hidden' }}>
+          <div className="sidebar-user-name" style={{ color: 'var(--text-primary)', fontSize: '13px', fontWeight: '500', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             Company Owner
           </div>
-          <div style={{ color: 'var(--text-muted)', fontSize: '11px' }}>Admin</div>
+          <div className="sidebar-user-role" style={{ color: 'var(--text-muted)', fontSize: '11px' }}>Admin</div>
         </div>
-        <Settings size={16} color="var(--text-muted)" style={{ cursor: 'pointer' }} />
+        <Settings size={16} color="var(--text-muted)" style={{ cursor: 'pointer', flexShrink: 0 }} />
       </div>
-    </div>
+    </aside>
   );
 }

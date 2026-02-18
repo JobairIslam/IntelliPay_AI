@@ -129,72 +129,43 @@ export default function ChatWindow() {
         background: 'var(--bg-primary)',
       }}
     >
-      {/* Header Bar */}
+      {/* Header Bar - compact and wrap-friendly on small screens */}
       <div
+        className="flex flex-wrap items-center justify-between gap-2 px-3 py-2.5 sm:px-4 sm:py-3 md:px-6 md:py-4"
         style={{
           background: 'var(--bg-secondary)',
           borderBottom: '1px solid var(--border-color)',
-          padding: '16px 24px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
         }}
       >
-        <div>
+        <div className="min-w-0 flex-1">
           <h1
-            style={{
-              color: 'var(--text-primary)',
-              fontSize: '17px',
-              fontWeight: '700',
-              marginBottom: '2px',
-            }}
+            className="text-sm font-bold leading-tight sm:text-[15px] md:text-[17px]"
+            style={{ color: 'var(--text-primary)', marginBottom: '2px' }}
           >
             Invoice Query Assistant
           </h1>
-          <p style={{ color: 'var(--text-muted)', fontSize: '12px' }}>
+          <p className="text-[10px] sm:text-[11px] md:text-xs" style={{ color: 'var(--text-muted)' }}>
             Ask anything about payments, invoices & teams
           </p>
         </div>
-        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <div className="flex shrink-0 flex-wrap items-center gap-1.5 sm:gap-2">
           <div
-            style={{
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border-color)',
-              borderRadius: '20px',
-              padding: '4px 10px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-            }}
+            className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 sm:px-2.5 sm:py-1"
+            style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
           >
-            <Brain size={12} color="var(--accent-blue)" />
-            <span style={{ color: 'var(--accent-blue)', fontSize: '11px', fontWeight: '500' }}>
-              Claude AI
-            </span>
+            <Brain size={10} color="var(--accent-blue)" />
+            <span className="text-[10px] font-medium sm:text-[11px]" style={{ color: 'var(--accent-blue)' }}>Claude AI</span>
           </div>
           <div
-            style={{
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border-color)',
-              borderRadius: '20px',
-              padding: '4px 10px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-            }}
+            className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 sm:px-2.5 sm:py-1"
+            style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
           >
-            <Database size={12} color="var(--accent-blue)" />
-            <span style={{ color: 'var(--accent-blue)', fontSize: '11px', fontWeight: '500' }}>
-              Sheets DB
-            </span>
+            <Database size={10} color="var(--accent-blue)" />
+            <span className="text-[10px] font-medium sm:text-[11px]" style={{ color: 'var(--accent-blue)' }}>Sheets DB</span>
           </div>
           <div
-            style={{
-              width: '10px',
-              height: '10px',
-              borderRadius: '50%',
-              background: isConnected ? 'var(--success)' : 'var(--danger)',
-            }}
+            className="h-2 w-2 shrink-0 rounded-full sm:h-2.5 sm:w-2.5"
+            style={{ background: isConnected ? 'var(--success)' : 'var(--danger)' }}
           />
         </div>
       </div>
@@ -202,11 +173,8 @@ export default function ChatWindow() {
       {/* Message Area */}
       <div
         ref={messageAreaRef}
-        style={{
-          flex: 1,
-          overflowY: 'auto',
-          padding: '24px',
-        }}
+        className="p-3 sm:p-4 md:p-6"
+        style={{ flex: 1, overflowY: 'auto' }}
       >
         {messages.length === 0 ? (
           <EmptyState onSuggestionClick={handleSuggestionClick} />

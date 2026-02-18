@@ -22,10 +22,10 @@ export default function InputBar({ input, setInput, onSend, isLoading }) {
 
   return (
     <div
+      className="px-3 py-3 sm:px-4 sm:py-4 md:px-6 md:pb-5"
       style={{
         background: 'var(--bg-secondary)',
         borderTop: '1px solid var(--border-color)',
-        padding: '16px 24px 20px',
       }}
     >
       <div
@@ -130,7 +130,7 @@ export default function InputBar({ input, setInput, onSend, isLoading }) {
         }}
       >
         <Database size={12} color="var(--text-muted)" />
-        <span style={{ color: 'var(--text-muted)', fontSize: '11px' }}>
+        <span className="text-[10px] sm:text-[11px]" style={{ color: 'var(--text-muted)' }}>
           Invoice AI reads directly from your Google Sheets database
         </span>
       </div>

@@ -30,6 +30,40 @@
   --sidebar-width: 280px;
 }
 
+/* Smaller sidebar and typography on small displays */
+@media (max-width: 1023px) {
+  :root {
+    --sidebar-width: min(280px, 85vw);
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --sidebar-width: 100%;
+  }
+}
+
+/* Sidebar: compact text and spacing on small screens */
+@media (max-width: 640px) {
+  .sidebar .sidebar-logo-title { font-size: 14px !important; }
+  .sidebar .sidebar-logo-sub { font-size: 11px !important; }
+  .sidebar .sidebar-btn { font-size: 12px !important; height: 36px !important; }
+  .sidebar .sidebar-section-label { font-size: 10px !important; padding: 0 12px 8px !important; }
+  .sidebar .sidebar-chat-title { font-size: 12px !important; }
+  .sidebar .sidebar-chat-time { font-size: 10px !important; }
+  .sidebar .sidebar-status-text { font-size: 11px !important; }
+  .sidebar .sidebar-status-sub { font-size: 10px !important; }
+  .sidebar .sidebar-user-name { font-size: 12px !important; }
+  .sidebar .sidebar-user-role { font-size: 10px !important; }
+  .sidebar .sidebar-block-padding { padding: 12px 16px !important; }
+  .sidebar .sidebar-logo-block { padding: 14px 16px !important; }
+  .sidebar .sidebar-new-chat-wrap { margin: 0 12px 12px !important; }
+  .sidebar .sidebar-chat-item { padding: 8px 12px !important; }
+  .sidebar .sidebar-status-card { margin: 12px !important; padding: 10px !important; }
+  .sidebar .sidebar-footer { padding: 10px 12px !important; gap: 8px !important; }
+  .sidebar .sidebar-logo-icon { width: 32px !important; height: 32px !important; }
+}
+
 body {
   background: var(--bg-primary);
   overflow: hidden;
