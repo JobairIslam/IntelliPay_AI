@@ -1,0 +1,150 @@
+
+# 🚀 Cursor Prompt — Full Clerk Protection (Detailed + Production Ready)
+
+I have a **Next.js 14+ App Router project** and I want to fully protect my entire application using **Clerk authentication**.
+
+My goal is:
+
+🔒 No user should be able to access any page of the app without signing in.
+👤 When a visitor enters the site, they must be redirected to `/sign-in`.
+✅ After successful authentication, they can access the app.
+🚫 No default Clerk header UI should be rendered.
+✨ The authentication UI must be clean and production-ready.
+
+---
+
+## 🎯 Requirements
+
+Please implement the complete authentication setup with the following structure and best practices:
+
+---
+
+## 1️⃣ Configure ClerkProvider
+
+Update `app/layout.tsx`:
+
+* Wrap the entire application with `<ClerkProvider>`
+* Keep the HTML structure valid
+* Do not introduce unnecessary re-renders
+* Follow Next.js App Router best practices
+
+Expected structure:
+
+* `<ClerkProvider>`
+* `<html>`
+* `<body>`
+* `{children}`
+
+---
+
+## 2️⃣ Create Authentication Routes
+
+Create the following routes exactly:
+
+### ✅ `app/sign-in/[[...sign-in]]/page.tsx`
+
+* Render `<SignIn />` from `@clerk/nextjs`
+* Ensure proper full-page rendering
+
+### ✅ `app/sign-up/[[...sign-up]]/page.tsx`
+
+* Render `<SignUp />` from `@clerk/nextjs`
+* Ensure proper full-page rendering
+
+Do not wrap these unnecessarily.
+Keep them clean.
+
+---
+
+## 3️⃣ Create `middleware.ts` in Root
+
+Create a `middleware.ts` file that:
+
+* Uses `clerkMiddleware` from `@clerk/nextjs/server`
+* Protects ALL routes
+* Makes ONLY:
+
+  * `/sign-in`
+  * `/sign-up`
+    public
+* Automatically redirects unauthenticated users to sign-in
+* Uses proper route matching
+* Avoids breaking static assets and `_next` files
+
+The middleware must be production-ready and correctly configured.
+
+---
+
+## 4️⃣ Enforce Full App Protection
+
+Authentication flow must work like this:
+
+Visitor enters `/`
+→ Automatically redirected to `/sign-in`
+→ After successful login
+→ Redirected back to app
+→ Full access granted
+
+If logged out:
+→ Access denied
+→ Redirected again
+
+No page should be accessible without login.
+
+---
+
+## 5️⃣ Navbar Integration
+
+Inside my existing custom Navbar component:
+
+* Import and render `<UserButton />`
+* Only show it when the user is authenticated
+* Add `afterSignOutUrl="/sign-in"`
+* Do NOT render `<SignInButton />` or `<SignUpButton />`
+* Do NOT render Clerk’s default header
+
+Keep navbar integration clean and minimal.
+
+---
+
+## 6️⃣ Production Quality Standards
+
+Make sure:
+
+* Code follows Next.js App Router best practices
+* No deprecated Clerk APIs
+* No console warnings
+* Clean folder structure
+* Proper TypeScript usage (if project uses TS)
+* No unnecessary client components unless required
+
+---
+
+## 7️⃣ Environment Variables
+
+Assume `.env.local` already contains:
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+CLERK_SECRET_KEY
+
+Do not regenerate them.
+
+---
+
+## 🎯 Final Result Must Achieve:
+
+* Entire app protected
+* Automatic redirect if unauthenticated
+* Clean authentication pages
+* Profile button in navbar when logged in
+* No UI flashes of protected content
+* Production-ready implementation
+
+---
+
+Generate all necessary files and modifications.
+
+---
+
+If anything is missing, ask before making assumptions.
+

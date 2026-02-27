@@ -8,7 +8,7 @@ import ChatWindow from '@/components/ChatWindow';
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  
+  // Disable body scroll when sidebar is open on mobile/tablet
   useEffect(() => {
     const isBelowLg = () => window.matchMedia('(max-width: 1023px)').matches;
     if (sidebarOpen && isBelowLg()) {
