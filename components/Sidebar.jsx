@@ -155,7 +155,7 @@ export default function Sidebar({ isOpen = true, onClose }) {
         </div>
         <div style={{ flex: 1, minWidth: 0, overflow: 'hidden' }}>
           <div className="sidebar-user-name" style={{ color: 'var(--text-primary)', fontSize: '13px', fontWeight: '500', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-            Company Owner
+            Jobair Islam
           </div>
           <div className="sidebar-user-role" style={{ color: 'var(--text-muted)', fontSize: '11px' }}>Admin</div>
         </div>
