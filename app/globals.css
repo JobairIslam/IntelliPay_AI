@@ -43,6 +43,14 @@
   }
 }
 
+/* Empty state: shrink further on small screens */
+@media (max-width: 640px) {
+  .empty-state {
+    transform: scale(0.7);
+    transform-origin: top center;
+  }
+}
+
 /* Sidebar: compact text and spacing on small screens */
 @media (max-width: 640px) {
   .sidebar .sidebar-logo-title { font-size: 14px !important; }

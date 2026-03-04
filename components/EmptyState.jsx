@@ -36,37 +36,38 @@ export default function EmptyState({ onSuggestionClick }) {
 
   return (
     <div
+      className="empty-state"
       style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '32px',
+        gap: '22px',
         height: '100%',
       }}
     >
       {/* Top Section */}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '11px' }}>
         <div
           style={{
-            width: '80px',
-            height: '80px',
-            borderRadius: '16px',
+            width: '56px',
+            height: '56px',
+            borderRadius: '11px',
             background: 'var(--accent-gradient)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
-          <BarChart3 size={36} color="white" />
+          <BarChart3 size={25} color="white" />
         </div>
         <div style={{ textAlign: 'center' }}>
           <h1
             style={{
               color: 'var(--text-primary)',
-              fontSize: '22px',
+              fontSize: '15px',
               fontWeight: '700',
-              marginBottom: '8px',
+              marginBottom: '6px',
             }}
           >
             Ask about any invoice or payment
@@ -74,8 +75,8 @@ export default function EmptyState({ onSuggestionClick }) {
           <p
             style={{
               color: 'var(--text-secondary)',
-              fontSize: '14px',
-              maxWidth: '400px',
+              fontSize: '10px',
+              maxWidth: '280px',
             }}
           >
             I have access to your complete invoice database. Ask me anything.
@@ -88,8 +89,8 @@ export default function EmptyState({ onSuggestionClick }) {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '12px',
-          maxWidth: '560px',
+          gap: '8px',
+          maxWidth: '392px',
           width: '100%',
         }}
       >
@@ -102,8 +103,8 @@ export default function EmptyState({ onSuggestionClick }) {
               style={{
                 background: 'var(--bg-card)',
                 border: '1px solid var(--border-color)',
-                borderRadius: '14px',
-                padding: '16px',
+                borderRadius: '10px',
+                padding: '11px',
                 cursor: 'pointer',
                 transition: 'all 0.2s',
               }}
@@ -120,23 +121,23 @@ export default function EmptyState({ onSuggestionClick }) {
             >
               <div
                 style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: '8px',
+                  width: '22px',
+                  height: '22px',
+                  borderRadius: '6px',
                   background: suggestion.iconBg,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
               >
-                <IconComponent size={16} color={suggestion.iconColor} />
+                <IconComponent size={11} color={suggestion.iconColor} />
               </div>
               <div
                 style={{
                   color: 'var(--text-primary)',
-                  fontSize: '13px',
+                  fontSize: '9px',
                   fontWeight: '500',
-                  marginTop: '12px',
+                  marginTop: '8px',
                   lineHeight: '1.4',
                 }}
               >
@@ -145,8 +146,8 @@ export default function EmptyState({ onSuggestionClick }) {
               <div
                 style={{
                   color: 'var(--text-muted)',
-                  fontSize: '11px',
-                  marginTop: '4px',
+                  fontSize: '8px',
+                  marginTop: '3px',
                 }}
               >
                 Tap to ask →

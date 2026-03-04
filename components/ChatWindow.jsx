@@ -129,9 +129,9 @@ export default function ChatWindow() {
         background: 'var(--bg-primary)',
       }}
     >
-      {/* Header Bar - compact and wrap-friendly on small screens */}
+      {/* Header Bar - more compact on small screens */}
       <div
-        className="flex flex-wrap items-center justify-between gap-2 px-3 py-2.5 sm:px-4 sm:py-3 md:px-6 md:py-4"
+        className="flex flex-wrap items-center justify-between gap-1.5 px-2 py-2 sm:px-3 sm:py-2.5 md:px-6 md:py-4"
         style={{
           background: 'var(--bg-secondary)',
           borderBottom: '1px solid var(--border-color)',
@@ -139,32 +139,37 @@ export default function ChatWindow() {
       >
         <div className="min-w-0 flex-1">
           <h1
-            className="text-sm font-bold leading-tight sm:text-[15px] md:text-[17px]"
-            style={{ color: 'var(--text-primary)', marginBottom: '2px' }}
+            className="text-xs font-bold leading-tight sm:text-sm md:text-[17px]"
+            style={{ color: 'var(--text-primary)', marginBottom: '1px' }}
           >
             Invoice Query Assistant
           </h1>
-          <p className="text-[10px] sm:text-[11px] md:text-xs" style={{ color: 'var(--text-muted)' }}>
+          <p className="text-[9px] sm:text-[10px] md:text-xs" style={{ color: 'var(--text-muted)' }}>
             Ask anything about payments, invoices & teams
           </p>
         </div>
-        <div className="flex shrink-0 flex-wrap items-center gap-1.5 sm:gap-2">
+        <div className="flex shrink-0 flex-wrap items-center gap-1 sm:gap-1.5 md:gap-2 pr-2 sm:pr-4 md:pr-6 pt-0.5 sm:pt-1">
           <div
-            className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 sm:px-2.5 sm:py-1"
+            className="hidden md:inline-flex items-center gap-1 rounded-full border px-1.5 py-0.5 sm:px-2 sm:py-0.5 md:px-2.5 md:py-1"
             style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
           >
             <Brain size={10} color="var(--accent-blue)" />
-            <span className="text-[10px] font-medium sm:text-[11px]" style={{ color: 'var(--accent-blue)' }}>Claude AI</span>
+            <span
+              className="hidden text-[10px] font-medium sm:inline sm:text-[11px]"
+              style={{ color: 'var(--accent-blue)' }}
+            >
+              Claude AI
+            </span>
           </div>
           <div
-            className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 sm:px-2.5 sm:py-1"
+            className="hidden md:inline-flex items-center gap-1 rounded-full border px-2 py-0.5 sm:px-2.5 sm:py-1"
             style={{ background: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
           >
             <Database size={10} color="var(--accent-blue)" />
             <span className="text-[10px] font-medium sm:text-[11px]" style={{ color: 'var(--accent-blue)' }}>Sheets DB</span>
           </div>
           <div
-            className="h-2 w-2 shrink-0 rounded-full sm:h-2.5 sm:w-2.5"
+            className="hidden h-2 w-2 shrink-0 rounded-full md:inline-block md:h-2.5 md:w-2.5"
             style={{ background: isConnected ? 'var(--success)' : 'var(--danger)' }}
           />
         </div>
