@@ -1,11 +1,28 @@
-// app/layout.tsx
-import type { Metadata } from 'next';
-import { ClerkProvider } from '@clerk/nextjs';
 import './globals.css';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import { AuthProvider } from '@/context/AuthContext';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Your App',
-  description: 'Your description',
+  title: 'Invoice AI - Finance Assistant',
+  description: 'AI-powered invoice query agent for payments and team expenses',
+  openGraph: {
+    images: [
+      {
+        url: 'https://bolt.new/static/og_default.png',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: [
+      {
+        url: 'https://bolt.new/static/og_default.png',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -14,12 +31,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <AuthProvider>
       <html lang="en">
-        <body>
+        <body className={inter.className}>
           {children}
         </body>
       </html>
-    </ClerkProvider>
+    </AuthProvider>
   );
 }

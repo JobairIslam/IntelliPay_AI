@@ -1,176 +1,72 @@
-# AI-Based Company Invoice Query Agent
+
+
+# **Project Proposal**
+
+## **Project Title**
+
+**AI Based Autonomous Payroll Agent & Invoice Generator**
 
 ---
 
-## Project Proposal
+## **Introduction**
+
+In many organizations, employees submit their monthly working hours and salary details through email. Manually reading these emails, extracting payroll information, and preparing salary summaries is inefficient and error-prone. With the help of **AI agent technologies**, this process can be automated intelligently.
+
+This project proposes an **AI-based payroll agent** developed using **Python**, which automatically analyzes salary-related emails, extracts payroll data, updates records, and generates a monthly summary invoice for the company owner.
 
 ---
 
-## 1. Introduction
+## **Objectives**
 
-In many companies, owners or directors must manually contact managers to obtain invoice and payment information. This process is time-consuming and inefficient.
-
-The **AI-Based Company Invoice Query Agent** is designed to solve this problem by allowing company owners to ask invoice-related questions in natural language through a chat interface and receive instant responses.
-
-For this lab project, the focus will be on the **Invoice & Payment Module**. In the future, this system can be expanded into a complete multi-agent company management platform.
-
----
-
-## 2. Problem Statement
-
-Company owners often face challenges such as:
-
-* Manually searching invoice records
-* Repeatedly asking finance managers for updates
-* Checking total payments, team expenses, or worker payments
-
-There is no intelligent system where they can directly ask questions like:
-
-* “What is the total payment this month?”
-* “How much did we pay the marketing team?”
-* “Show me John’s payment history.”
-
-This project addresses these issues by building an AI chatbot connected to a structured invoice database.
+* To design an AI agent that monitors payroll emails
+* To identify salary-related emails using AI
+* To extract payroll information using NLP
+* To update payroll data automatically
+* To generate and send a monthly payroll summary invoice
 
 ---
 
-## 3. Objectives
+## **Proposed System**
 
-The main objectives of this project are:
+The system uses an **autonomous AI agent** that:
 
-* Create a structured database to store invoice and payment data
-* Develop a chat-based interface for natural interaction
-* Integrate an AI model to understand user queries
-* Build a backend system to connect the database and AI
-* Provide accurate and structured invoice-related responses
-
----
-
-## 4. System Overview
-
-The system workflow will be:
-
-1. Owner enters a question in the chat interface
-2. The question is sent to the backend
-3. The backend retrieves invoice data from the database
-4. The AI model processes the structured data and question
-5. The system returns a clear and accurate response
-
-This system acts as a Finance Information Agent for the company.
+1. Monitors the payroll email inbox
+2. Classifies emails related to salary and payments
+3. Extracts employee details such as hours worked and salary
+4. Updates payroll records in a spreadsheet or database
+5. Generates a consolidated monthly invoice
+6. Sends the invoice to the company owner
 
 ---
 
-## 5. Tools & Technologies
+## **AI Techniques Used**
 
-* **Backend:** Python + Flask
-* **Frontend:** Next.js (React-based framework)
-* **Database:** Google Sheets (via API)
-* **AI Model:** OpenAI API (ChatGPT) or Anthropic Claude
-* **Development Tools:** VS Code, Node.js
-
----
-
-## 6. Methodology
-
-### Database (Google Sheets)
-
-The database will store:
-
-* Worker Name
-* Role
-* Team
-* Invoice Number
-* Payment Amount
-* Payment Date
+* Natural Language Processing (NLP)
+* Text Classification
+* Information Extraction
+* AI-based Text Generation
 
 ---
 
-### Backend (Flask)
+## **Tools & Technologies**
 
-The backend will:
-
-* Fetch invoice data from Google Sheets
-* Structure and preprocess data
-* Send structured data and user query to the AI model
-* Receive AI-generated response
-* Return the final answer to the frontend
+* **Language:** Python
+* **AI Agent Framework:** LangChain / CrewAI 
+* **Email Handling:**  Gmail API
+* **Data Storage:** Google Sheets 
+* **Invoice Generation:** PDF libraries
 
 ---
 
-### Frontend (Next.js)
+## **Future Scope**
 
-The frontend will:
-
-* Provide a simple and clean chat interface
-* Send user queries to the backend
-* Display user messages and AI responses clearly
+* Strong employee verification mechanisms
+* Automatic salary transfer through bank APIs
+* Fraud detection and approval workflows
 
 ---
 
-## 7. Expected Outcome
+## **Conclusion**
 
-After 4 weeks, the system will:
+The proposed system demonstrates the use of **AI agents and NLP** to automate payroll processing. It reduces manual effort, improves accuracy, and serves as a practical AI lab project with real-world relevance.
 
-* Successfully answer invoice-related questions
-* Provide 80–85% accuracy in responses
-* Allow instant access to payment information
-* Demonstrate a working AI-powered finance assistant
-
----
-
-## 8. Future Scope – Multi-Agent AI System
-
-In future development, this project can evolve into a complete AI Company Management Platform with multiple intelligent agents:
-
-* HR Agent – Employee data and attendance
-* Sales Agent – Sales and lead tracking
-* Inventory Agent – Stock management
-* Work Delivery Agent – Project tracking
-* Finance Agent – Invoice and expense management
-
-All agents will update a centralized database, enabling cross-department queries such as:
-
-“What was the total cost of marketing projects delivered this month?”
-
-This will reduce manual reporting and improve overall company efficiency.
-
----
-
-## 9. 4-Week Project Timeline
-
-### Week 1 – Planning and Database
-
-* Finalize system architecture
-* Create Google Sheets invoice database
-* Insert 50–100 sample records
-* Configure API keys
-
-### Week 2 – Backend Development
-
-* Connect Google Sheets API
-* Develop Flask backend
-* Integrate AI model
-* Test invoice-related queries
-
-### Week 3 – Frontend Development
-
-* Build chat UI using Next.js
-* Connect frontend with backend
-* Implement message display system
-
-### Week 4 – Testing and Finalization
-
-* Test various invoice questions
-* Fix errors and optimize responses
-* Improve response accuracy
-* Prepare final demo and documentation
-
----
-
-## 10. Conclusion
-
-The AI-Based Company Invoice Query Agent introduces a smart and efficient way for company owners to access financial data using natural language.
-
-Instead of manually searching records or contacting managers, the owner can simply ask questions and receive immediate, accurate responses.
-
-While this lab project focuses only on the invoice module, it lays a strong foundation for building a full AI-powered company management system in the future.
