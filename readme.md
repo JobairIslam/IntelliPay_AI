@@ -70,3 +70,7 @@ The system uses an **autonomous AI agent** that:
 
 The proposed system demonstrates the use of **AI agents and NLP** to automate payroll processing. It reduces manual effort, improves accuracy, and serves as a practical AI lab project with real-world relevance.
 
+
+
+--
+
