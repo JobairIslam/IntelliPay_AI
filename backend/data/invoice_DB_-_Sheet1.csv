@@ -1,0 +1,6 @@
+invoice_id,worker_name,role,team,invoice_number,amount,payment_date,status,description
+1,John Smith,Developer,Engineering,INV-001,2500,"January 15, 2025",Paid,Website module
+2,Sara Ahmed,Designer,Marketing,INV-002,1800,"January 18, 2025",Paid,Logo redesign
+3,Mike Johnson,Manager,Marketing,INV-003,3200,"January 20, 2025",Unpaid,Campaign planning
+4,Lena Park ,Developer,Engineering,INV-004,2200,"February 1, 2025",Paid,API integration
+5,Tom Brown,Writer,Marketing,INV-005,900,"February 5, 2025",Paid,Blog content
