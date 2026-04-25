@@ -58,7 +58,7 @@ export default function ChatWindow() {
           id: Date.now() + 1,
           role: 'ai',
           content:
-            '⚠️ Could not connect to the server. Make sure the backend is running on port 5000.',
+            '⚠️ Could not connect to the server. Make sure the backend is running on port 5001.',
           timestamp: new Date(),
           isError: true,
         },
@@ -107,7 +107,7 @@ export default function ChatWindow() {
               id: Date.now() + 1,
               role: 'ai',
               content:
-                '⚠️ Could not connect to the server. Make sure the backend is running on port 5000.',
+                '⚠️ Could not connect to the server. Make sure the backend is running on port 5001.',
               timestamp: new Date(),
               isError: true,
             },
